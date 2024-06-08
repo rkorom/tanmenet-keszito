@@ -28,3 +28,4 @@ jobs:
         with:
           name: app-${{ matrix.python-version }}
           path: dist/app.exe
+          if-no-files-found: error
