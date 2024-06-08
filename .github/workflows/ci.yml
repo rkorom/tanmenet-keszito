@@ -22,7 +22,7 @@ jobs:
           pip install -r requirements.txt
           pip install pyinstaller
       - name: Build package
-        run: pyinstaller --onefile app.py
+        run: pyinstaller --noconsole --onefile app.py
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
