@@ -90,13 +90,15 @@ class EditableTableApp:
 
     def generate(self):
         data = []
+        counter = 1  # Initialize counter for Óraszám
         for item in self.tree.get_children():
             row = self.tree.item(item)["values"]
             sorszam, tema, oraszam = row
             try:
                 oraszam = int(oraszam)
                 for i in range(oraszam):
-                    data.append([i + 1, tema])
+                    data.append([counter, tema])
+                    counter += 1
             except ValueError:
                 continue
 
