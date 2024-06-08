@@ -27,9 +27,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app-${{ matrix.python-version }}
-          path: dist/app
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: app-${{ matrix.python-version }}
           path: dist/app.exe
