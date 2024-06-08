@@ -22,14 +22,14 @@ jobs:
           pip install -r requirements.txt
           pip install pyinstaller
       - name: Build package
-        run: pyinstaller --onefile gyujto.py
+        run: pyinstaller --onefile app.py
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: gyujto-${{ matrix.python-version }}
-          path: dist/gyujto
+          name: app-${{ matrix.python-version }}
+          path: dist/app
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: gyujto-${{ matrix.python-version }}
-          path: dist/gyujto.exe
+          name: app-${{ matrix.python-version }}
+          path: dist/app.exe
