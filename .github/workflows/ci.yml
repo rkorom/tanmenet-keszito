@@ -1,0 +1,35 @@
+name: Python package
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest]
+        python-version: ["3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+      - name: Build package
+        run: pyinstaller --onefile gyujto.py
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: gyujto-${{ matrix.python-version }}
+          path: dist/gyujto
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: gyujto-${{ matrix.python-version }}
+          path: dist/gyujto.exe
