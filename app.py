@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
+import pandas as pd
 
 
 class EditableTableApp:
@@ -99,12 +100,11 @@ class EditableTableApp:
             except ValueError:
                 continue
 
-        with open("output.csv", "w", newline="", encoding="utf-8") as file:
-            file.write("Óraszám;Téma\n")
-            for row in data:
-                file.write(f"{row[0]};{row[1]}\n")
+        # Convert to DataFrame and save as Excel
+        df = pd.DataFrame(data, columns=["Óraszám", "Téma"])
+        df.to_excel("output.xlsx", index=False)
 
-        messagebox.showinfo("Info", "CSV fájl generálva: output.csv")
+        messagebox.showinfo("Info", "Excel fájl generálva: output.xlsx")
 
 
 if __name__ == "__main__":
