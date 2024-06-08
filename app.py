@@ -21,7 +21,7 @@ class EditableTableApp:
         self.tree.pack(pady=20)
 
         self.tree.column("Sorszám", width=70)
-        self.tree.column("Téma", width=200)
+        self.tree.column("Téma", width=500)
         self.tree.column("Óraszám", width=100)
 
         self.tree.bind("<Double-1>", self.on_double_click)
@@ -29,8 +29,8 @@ class EditableTableApp:
     def populate_table(self):
         # Add sample data
         self.data = [
-            ["Haladó szintű objektumorientált programozás", 12],
-            ["Összefoglalás", 1],
+            ["Bolygónk élővilága", 4],
+            ["Összefoglalás", 2],
             ["Számonkérés", 1],
         ]
 
